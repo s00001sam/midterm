@@ -33,12 +33,15 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Title"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:scrollHorizontally="false"
                 android:text="@={viewModel.enterTitle}"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:maxLines="2"/>
 
             <EditText
                 android:id="@+id/editTag"
@@ -48,38 +51,39 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Tag"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:text="@={viewModel.enterTag}"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTitle" />
 
-            <EditText
-                android:id="@+id/editContent"
-                android:layout_width="0dp"
-                android:layout_height="400dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:gravity="clip_horizontal"
-                android:hint="請輸入文章內容"
-                android:inputType="textPersonName"
-                android:text="@={viewModel.enterContent}"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTag" />
-
             <Button
                 android:id="@+id/buttonInsert"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="Enter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/editContent"
+                android:layout_width="0dp"
+                android:layout_height="343dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="請輸入文章內容"
+                android:inputType="textMultiLine"
+                android:text="@={viewModel.enterContent}"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonInsert"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editContent" />
+                app:layout_constraintTop_toBottomOf="@+id/editTag"
+                app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
