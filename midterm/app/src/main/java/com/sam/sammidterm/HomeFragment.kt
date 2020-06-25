@@ -48,4 +48,9 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).getAll()
+    }
 }
