@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1008822726729",
+    "firebase_url": "https://sam-midterm.firebaseio.com",
+    "project_id": "sam-midterm",
+    "storage_bucket": "sam-midterm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008822726729:android:7b10e8a3ff4638dfeb0f98",
+        "android_client_info": {
+          "package_name": "com.sam.sammidterm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1008822726729-ii4e583ofbshb54376nbdc3euscl3gh9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmMRql7OAOAFtOeVZ2yOb6oDQu954ZCfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1008822726729-ii4e583ofbshb54376nbdc3euscl3gh9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
