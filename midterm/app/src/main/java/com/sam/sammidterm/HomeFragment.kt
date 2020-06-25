@@ -38,6 +38,7 @@ class HomeFragment : Fragment() {
             viewModel.addData()
             viewModel.getAll()
         }
+
         viewModel.setArticles.observe(viewLifecycleOwner, Observer {
             Log.d("sam", "setArticles=${viewModel.setArticles.value}")
             (binding.recycleHome.adapter as HomeAdapter).submitList(it)
