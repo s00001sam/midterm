@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import java.util.*
 
@@ -16,13 +17,15 @@ class HomeViewModel: ViewModel() {
 
     val document = articles.document()
 
-    var allArticles = mutableListOf<Articles>()
-
     val setArticles = MutableLiveData<List<Articles>>()
 
     val test = MutableLiveData<List<String>>()
 
     var authorList = listOf<String>()
+
+//    init {
+//        getAll()
+//    }
 
     fun addData() {
 
@@ -43,7 +46,9 @@ class HomeViewModel: ViewModel() {
     }
 
     fun getAll(){
-        articles.get()
+        articles
+            .orderBy("createdTime", Query.Direction.DESCENDING)
+            .get()
             .addOnCompleteListener(OnCompleteListener<QuerySnapshot> { task ->
                 if (task.isSuccessful) {
                     for (document in task.result!!) {
@@ -54,6 +59,7 @@ class HomeViewModel: ViewModel() {
                 }
             })
             .addOnSuccessListener {
+                var allArticles = mutableListOf<Articles>()
                 for(i in it){
                     val artilcle = Articles()
                     artilcle.name = i.getString("author.name")
@@ -70,7 +76,6 @@ class HomeViewModel: ViewModel() {
                 setArticles.value = allArticles
                 Log.d("sam", "all=${setArticles.value}")
             }
-
 
     }
 

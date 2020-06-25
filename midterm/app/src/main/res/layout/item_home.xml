@@ -40,20 +40,20 @@
             app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
         <TextView
-            android:id="@+id/textTag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@{articles.tag}"
-            app:layout_constraintStart_toStartOf="@+id/textAuthor"
-            app:layout_constraintTop_toBottomOf="@+id/textAuthor" />
-
-        <TextView
             android:id="@+id/textTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Create time"
+            app:layout_constraintStart_toStartOf="@+id/textAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/textAuthor" />
+
+        <TextView
+            android:id="@+id/textTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{articles.tag}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
@@ -66,6 +66,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTag" />
+            app:layout_constraintTop_toBottomOf="@+id/textTime" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

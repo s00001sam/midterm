@@ -19,7 +19,7 @@ class HomeAdapter(val viewModel: HomeViewModel) : ListAdapter<Articles, HomeAdap
         fun bind(articles: Articles, viewModel: HomeViewModel) {
             binding.viewModel = viewModel
             binding.articles = articles
-            binding.textTime.text = articles.createdTime.toString()
+            binding.textTime.text = TimerChange.StampToDate(articles.createdTime)
             binding.executePendingBindings()
         }
 

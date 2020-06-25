@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.sam.sammidterm.databinding.FragmentHomeBinding
 
 /**
@@ -20,32 +21,31 @@ class HomeFragment : Fragment() {
         ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
+    lateinit var binding: FragmentHomeBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,
+        binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,
             R.layout.fragment_home, container, false)
         binding.setLifecycleOwner(this)
         binding.viewModel = viewModel
 
-        viewModel.getAll()
+//        viewModel.getAll()
 
         binding.recycleHome.adapter = HomeAdapter(viewModel)
 
         binding.floatingAdd.setOnClickListener {
-            viewModel.addData()
-            viewModel.getAll()
+            findNavController().navigate(R.id.insertFragment)
         }
-
-        viewModel.setArticles.observe(viewLifecycleOwner, Observer {
+        (activity as MainActivity).getAll()
+        (activity as MainActivity).setArticles.observe(viewLifecycleOwner, Observer {
             Log.d("sam", "setArticles=${viewModel.setArticles.value}")
             (binding.recycleHome.adapter as HomeAdapter).submitList(it)
-            (binding.recycleHome.adapter as HomeAdapter).notifyDataSetChanged()
         })
 
         return binding.root
     }
-
 }

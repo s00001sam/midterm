@@ -8,4 +8,8 @@
         android:id="@+id/homeFragment"
         android:name="com.sam.sammidterm.HomeFragment"
         android:label="HomeFragment" />
+    <dialog
+        android:id="@+id/insertFragment"
+        android:name="com.sam.sammidterm.InsertFragment"
+        android:label="InsertFragment" /><action android:id="@+id/action_global_insertFragment" app:destination="@id/insertFragment"/>
 </navigation>
